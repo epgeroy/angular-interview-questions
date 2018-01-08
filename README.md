@@ -137,13 +137,39 @@ At this level an interviewer wants to know whether the interviewee is a coachabl
 
 ### Ability to Build Simple App
 1. How do components communicate with each other?
-2. How would you use http to load data from server? 
+
+    Using angular dependency injector.
+
+2. How would you use http to load data from server?
+
+    I will use it from a Component, injecting the HttpClient module, then calling the convenient functon for the convenient HTTP request configuration, passing the url as parameter and then subscribing a delegate function for processing the return value.
+
 3. How do you create routes?
+
+    Routes are defined by convention in the app-routing.module.ts file. This are declared in the Routes array form. The basic way to declare a route is defining a path and a component, a route path can contain route parameters used as values in the component and wildcards. Also a Route object have several optional values such as: title, redirectTo, pathMatch, etc.
+
 4. How can you get the current state of a route?
+
+    After the end of each successful navigation lifecycle, the router builds a tree of ActivatedRoute objects that make up the current state of the router. You can access the current RouterState from anywhere in the application using the Router service and the routerState property.
+
+Each ActivatedRoute in the RouterState provides methods to traverse up and down the route tree to get information from parent, child and sibling routes.
+
 5. How do you create two-way data binding?
+
+    In Angular, two-way binding is denoted by [()], descriptively referred to as a "banana in a box". This syntax is a shortcut for defining both property binding (from the component to the view) and event binding (from the view to the component), thereby providing two-way binding.
+
 6. How do you load external modules?
+
+    Most o the time, installing it using npm or algunlar cli, scafolded code and webpack will do most of the work, therefore some modules are aplication wide and are grouped in the so called Shared Module.[REVIEW]
+
 7. How would you display form validation errors?
+
+    Angular provides @angular/forms module, with this module features an angular application can have form validation rules using the FormBuilder, FormControl and Validators.[REVIEW]
+
 8. Which lifecycle hook would you use to unsubscribe an observable?
+
+    ngOnDestroy if needed.
+
 9. How are services injected to your application?
 10. How would you create route parameters and access them from a component?
 
@@ -190,6 +216,9 @@ To be in the intermediate level, you have to build at least one medium sized ang
 ### Comfortability to Build Medium Size App Questions
 1. How do components communicate with each other?
 2. How do you decide to create a new NgModule?
+
+    The app lacks clear boundaries between  functionalitys. That lack of clarity makes it harder to assign development responsibilities to different teams.
+
 3. How will you inject custom header in your http call?
 4. How do you identify a structural directive in html?
 5. How would you select a custom component to style it?
