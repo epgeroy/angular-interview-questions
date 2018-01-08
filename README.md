@@ -269,10 +269,28 @@ To be in the intermediate level, you have to build at least one medium sized ang
 
 ### Essential Terminology Questions
 1. How will you protect a route for authorized user only?
+
+    Implementing CanActivate and CanActivateChild and passing the implementation to the route like:
+    
+    { path: 'home', component: HomeComponent,  canActivate: [AppRouteGuard] },
+
+    { path: 'users', component: UsersComponent, data: { permission: 'Manage.Users' }, canActivate: [AppRouteGuard] },
+
 2. What is a custom pipe and how will you use it?
+
+    A custom pipe is a user defined pipe used when the angular built in pipes don't meet the needed requirements. It's used in the same way as built in pipes but only declared in app.module.ts if is an application-wide feature.
+
 3. What is a structural directive?
+
+    Structural directives are some kind of "complicated directives". The two most common structural directives are ngIf and ngFor, they use the asterisk syntactic sugar. When using this directives Angular will wrap the host element with a template tag.
+
 4. What is the difference between RouterModule.forRoot() vs RouterModule.forChild()? Why is it important?
+
+    
 5. What is the difference between a module's forRoot() and forChild() methods and why do you need it?
+
+    forRoot() static method is used to inject components with the app root injector, ergo, all the providers specified with forRoot() will be available for the entire applications. forChild() static method is used to inject components with a child injector, therefore providers specified will only be avaidable for injections inside this lazy-loaded module.
+
 6. What's the difference between dirty, touched, and pristine on a form element?
 7. What is an async pipe? What kind of data can be used with async pipe?
 8. What is injectable? Give me some example.
@@ -432,12 +450,6 @@ This coding test will judge your understanding of architecture for a large appli
 6. What is ngUpgrage? Do you know how you can run angularJS and angular side by side?
 
 [Answers link coming soon]
-
-
-## Note from God
-On a press release, God expressed HIS apologies to send the author of this repo to a non-English speaking country and creating weekends. 
-
-
 
 
 ## Contributors
