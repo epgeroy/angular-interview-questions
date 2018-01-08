@@ -171,26 +171,94 @@ Each ActivatedRoute in the RouterState provides methods to traverse up and down 
     ngOnDestroy if needed.
 
 9. How are services injected to your application?
+
+    Using the @Injectable decorator.
+
 10. How would you create route parameters and access them from a component?
 
-
+    Route parameters are defined in the Routes[] configuration array in the same field that the path value, using :<variable_name> sintax. This values are extracted in components using the ActivatedRoute component from @angular/router module and accessed in a dictionary form via .snapshot.paramMap.get('variable_name')
 
 ### Basic Concepts
 1. Why would you use Angular instead of another framework, e.g., React?
+
+    1. Low Decision Fatigue
+
+        Since Angular is a framework, it provides significantly more opinions and functionality out of the box. With React, you typically pull a number of other libraries off the shelf to build a real app. You’ll likely want libraries for routing, enforcing unidirectional flows, web API calls, testing, dependency management, and so on. The number of decisions is pretty overwhelming. This is why React has so many starter kits (I’ve published two).
+        Angular offers more opinions out of the box, which helps you get started more quickly without feeling intimidated by decisions. This enforced consistency also helps new hires feel at home more quickly and makes switching developers between teams more practical.
+
+    2. TypeScript
+
+        Sure, TypeScript isn’t loved by all, but Angular 2’s opinionated take on which flavor of JavaScript to use is a big win. React examples across the web are frustratingly inconsistent — it’s presented in ES5 and ES6 in roughly equal numbers, and it currently offers three different ways to declare components. This creates confusion for newcomers. (Angular also embraces decorators instead of extends — many would consider this a plus as well).
+        While Angular 2 doesn’t require TypeScript, the Angular core team certainly embraces it and defaults to using TypeScript in documentation. This means related examples and open source projects are more likely to feel familiar and consistent. Angular already provides clear examples that show how to utilize the TypeScript compiler. (though admittedly, not everyone is embracing TypeScript yet, but I suspect shortly after launch it’ll become the de facto standard). This consistency should help avoid the confusion and decision overload that comes with getting started with React.
+    
+    3. Reduced Churn
+
+        2015 was the year of JavaScript fatigue. Although React itself is expected to be quite stable with version 15 coming soon, React’s ecosystem has churned at a rapid pace, particularly around the long list of Flux flavors and routing. So anything you write in React today may feel out of date or require breaking changes in the future if you lean on one of many related libraries.
+        In contrast, Angular 2 is a careful, methodical reinvention of a mature, comprehensive framework. So Angular is less likely to churn in painful ways after release. And as a full framework, when you choose Angular, you can trust a single team to make careful decisions about the future. In React, it’s your responsibility to herd a bunch of disparate, fast-moving, open-source libraries into a comprehensive whole that plays well together. It’s time-consuming, frustrating, and a never-ending job.
+    
+    4. Broad Tooling Support
+
+        As you’ll see below, I consider React’s JSX a big win. However, you need to select tooling that supports JSX. React has become so popular that tooling support is rarely a problem today, but new tooling such as IDEs and linters are unlikely to support JSX on day one. Angular 2’s templates store markup in a string or in separate HTML files, so it doesn’t require special tooling support (though it appears tooling to intelligently parse Angular’s string templates is on the way).
+    
+    5. Web Component Friendly
+        Angular 2’s design embraces the web component’s standard.
+
+    [FROM https://medium.freecodecamp.org/angular-2-versus-react-there-will-be-blood-66595faafd51]
+
 2. What is the difference between an observable and a promise?
+
+    Often Observable is preferred over Promise because it provides the features of Promise and more. With Observable it doesn't matter if you want to handle 0, 1, or multiple events. You can utilize the same API in each case.
+    Observable also has the advantage over Promise to be cancelable. If the result of an HTTP request to a server or some other expensive async operation isn't needed anymore, the Subscription of an Observable allows to cancel the subscription, while a Promise will eventually call the success or failed callback even when you don't need the notification or the result it provides anymore.
+    Observable provides operators like map, forEach, reduce, ... similar to an array
+    There are also powerful operators like retry(), or replay(), ... that are often quite handy.
+    [FROM https://stackoverflow.com/questions/37364973/angular-promise-vs-observable]
+
 3. What is the difference between a component and a directive?
+
+    Components are a subset of Directives and handles a template
+    Directives add behaviour to an existing DOM element or an existing component instance. A component, rather than adding/modifying behaviour, actually creates its own view (hierarchy of DOM elements) with attached behaviour.
+    [FROM https://stackoverflow.com/questions/32680244/directive-v-s-component-in-angular]
+
 4. Why would you use typescript aka benefits of typescript?
+
+    TypeScript adds clarity and scalability to JavaScript.
+    1. Is purely object-oriented programming    
+    2. Can be used for client-side and server-side development alike
+    3. Offers a “compiler” that can convert to JavaScript-equivalent code
+    4. Has an API for DOM manipulation
+    5. Has a namespace concept by defining a “Module”
+
 5. Why different life cycle hooks are needed for a component/directive?
+
+    Directive and component instances have a lifecycle as Angular creates, updates, and destroys them. So developers can tap into key moments in that lifecycle by implementing one or more of the lifecycle hook interfaces in the Angular core library.
+    [FROM https://angular.io/guide/lifecycle-hooks]
+
 6. Why does angular use rxjs?
+
+    In RxJS, you represent asynchronous data streams using observable sequences or also just called observables. Observables are very flexible and can be used using push or pull patterns.
+    When using the push pattern, we subscribe to the source stream and react to new data as soon as is made available (emitted).
+    When using the pull pattern, we are using the same operations but synchronously. This happens when using Arrays, Generators or Iterables.
+    [FROM https://medium.com/google-developer-experts/angular-introduction-to-reactive-extensions-rxjs-a86a7430a61f]
+
 7. What is the purpose of using zone.js?
+
+    A zone is an execution context that persists across async tasks, and allows the creator of the zone to observe and control execution of the code within the zone.
+    I think that the main purpose of using zonejs in Angular is to know when to render.
+    Frameworks, such as Angular, need to know when all of the application work has completed and perform DOM update before the host environment performs the pixel rendering. In practice this means that the framework is interested when the main task and the associated micro tasks have executed but before the VM hands over the control to the host.
+
 8. What is the difference between ngOnInit() and the constructor() of a component?
+
+    ngOnInit() is a lifecylce hook used for initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties. The Constructor is a default method of the class that is executed when the class is instantiated and ensures proper initialization of fields in the class and its subclasses.
+
 9. When will ngOnInit() be called? How would you make use of ngOnInit()?
+
+    Better used for custom initialization logic after your directive's data-bound properties have been initialized.
+
 10. What are the benefits of using formBuilder?
 
+    More testable code. The FormGroup and FormControl classes provide an API that allows to build UIs using a completely different programming style known as Functional Reactive Programming.
 
-
-
-[Answers link coming soon ]
+[Answers link coming soon]
 
 
 ## Intermediate Level
