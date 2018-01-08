@@ -108,16 +108,25 @@ At this level an interviewer wants to know whether the interviewee is a coachabl
 9. What are the differences between reactive forms and template driven forms?
 
     Template driven forms are:
+
         1. Easy to use
+
         2. Similar to AngularJS
+
         3. Two way data binding
+
         4. Automatically tracks form and input element state
     
     Reactive forms are:
+
         1. More flexible, used in more complex scenarios
+
         2. Inmuttable data model
+
         3. Reactive transformation
+
         4. Easily add input elements dynamically
+        
         5. easier to unit test
 
 10. What is a dumb, or presentation, component? What are the benefits of using dumb components?
