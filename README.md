@@ -64,22 +64,27 @@ At this level an interviewer wants to know whether the interviewee is a coachabl
 
     4. Languaje support, Angular support many languajes, been TypeScript the most popular among them.
 
-2. What is a component? Why would you use it? 
+2. What is a component? Why would you use it?
+
     Components are the most basic building block of an UI in an Angular application. An Angular application is a tree of Angular components. Angular components are a subset of directives. Unlike directives, components always have a template and only one component can be instantiated per an element in a template.
 
 3. What is the minimum definition of a component?
+
     The absolute minimal configuration for a @Component in angular is a template. Both template properties are set to optional because you have to define either template or templateUrl.
 
 4. What is a module, and what does it contain?
+
     Every Angular app has at least one NgModule class, the root module, conventionally named AppModule. Is a piece of code that contains Components, Directives, Services, Values and Functions.
 
 5. What is a service, and when will you use it?
     It's a component like object used to comunicate between interfaces and smart components.
 
 6. What is a promise? Explain it laymen's terms.
+
     It's an object that represents a not yet avaidable value, but it will be in near future. It allows to write asynchronus code in a synchronus way.
 
 7. What are the lifecycle hooks for components and directives?
+
     1. ngOnChanges(): Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.
 
     2. ngOnInit(): Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.
