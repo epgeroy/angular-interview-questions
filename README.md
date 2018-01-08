@@ -126,12 +126,12 @@ At this level an interviewer wants to know whether the interviewee is a coachabl
         3. Reactive transformation
 
         4. Easily add input elements dynamically
-        
+
         5. easier to unit test
 
 10. What is a dumb, or presentation, component? What are the benefits of using dumb components?
 
-    A dumb component is a component with no external inyections, is a component whos only responsability is to present data. A benefit is modularity, a dumb component is not aware of who is providing the data, so it can be used to present data using distinct way fot fetching it.
+    A dumb component is a component with no inyections, is a component whos only responsability is to present data. A benefit is modularity, a dumb component is not aware of who is providing the data, so it can be used to present data using distincts way for fetching it.
 
 
 
