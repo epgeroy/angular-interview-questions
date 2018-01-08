@@ -56,15 +56,68 @@ At this level an interviewer wants to know whether the interviewee is a coachabl
 
 ### Familiarity of Basic Terminology
 1. What are the differences between AngularJS (angular 1.x) and Angular (Angular 2.x and beyond)?
+    1. Mobile driven, mobile support was keept in mind while writing the framework.
+
+    2. Component based, the idea of controller does not exist anymore, only components, those can be smart components or dumb components.
+
+    3. Performance, Angular is to 5 times faster than AngularJS.
+
+    4. Languaje support, Angular support many languajes, been TypeScript the most popular among them.
+
 2. What is a component? Why would you use it? 
+    Components are the most basic building block of an UI in an Angular application. An Angular application is a tree of Angular components. Angular components are a subset of directives. Unlike directives, components always have a template and only one component can be instantiated per an element in a template.
+
 3. What is the minimum definition of a component?
+    The absolute minimal configuration for a @Component in angular is a template. Both template properties are set to optional because you have to define either template or templateUrl.
+
 4. What is a module, and what does it contain?
+    Every Angular app has at least one NgModule class, the root module, conventionally named AppModule. Is a piece of code that contains Components, Directives, Services, Values and Functions.
+
 5. What is a service, and when will you use it?
+    It's a component like object used to comunicate between interfaces and smart components.
+
 6. What is a promise? Explain it laymen's terms.
+    It's an object that represents a not yet avaidable value, but it will be in near future. It allows to write asynchronus code in a synchronus way.
+
 7. What are the lifecycle hooks for components and directives?
+    1. ngOnChanges(): Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.
+
+    2. ngOnInit(): Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.
+
+    3. ngDoCheck(): Detect and act upon changes that Angular can't or won't detect on its own.
+
+    4. ngAfterContentInit(): Respond after Angular projects external content into the component's view. A component-only hook.
+
+    5. ngAfterContentChecked(): Respond after Angular checks the content projected into the component. A component-only hook.
+
+    6. ngAfterViewInit(): Respond after Angular initializes the component's views and child views. A component-only hook.
+
+    7. ngAfterViewChecked(): Respond after Angular checks the component's views and child views. A component-only hook.
+
+    8. ngOnDestroy(): Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks. Called just before Angular destroys the directive/component.
+
 8. What are pipes? Give me an example.
+
+    Pipes are presentation formatters used to format a value in a convenient way for the presentation i.e. | uppercase formatts the input string into an uppercased string.
+
 9. What are the differences between reactive forms and template driven forms?
+
+    Template driven forms are:
+        1. Easy to use
+        2. Similar to AngularJS
+        3. Two way data binding
+        4. Automatically tracks form and input element state
+    
+    Reactive forms are:
+        1. More flexible, used in more complex scenarios
+        2. Inmuttable data model
+        3. Reactive transformation
+        4. Easily add input elements dynamically
+        5. easier to unit test
+
 10. What is a dumb, or presentation, component? What are the benefits of using dumb components?
+
+    A dumb component is a component with no external inyections, is a component whos only responsability is to present data. A benefit is modularity, a dumb component is not aware of who is providing the data, so it can be used to present data using distinct way fot fetching it.
 
 
 
