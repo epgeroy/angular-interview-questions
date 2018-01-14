@@ -321,13 +321,31 @@ To be in the intermediate level, you have to build at least one medium sized ang
 
 ### Comfortability to Build Medium Size App Questions
 1. How do components communicate with each other?
+
+    1. Parent to child with input binding
+    2. Intercept input property changes with a setter
+    3. Intercept input property changes with ngOnChanges()
+    4. Parent listens for child event
+    5. Parent interacts with child via local variable
+    6. Parent calls an @ViewChild()
+    7. Parent and children communicate via a service
+
 2. How do you decide to create a new NgModule?
 
     The app lacks clear boundaries between  functionalitys. That lack of clarity makes it harder to assign development responsibilities to different teams.
 
 3. How will you inject custom header in your http call?
+
+    Adding custom headers to my http call if is needed only in one place, or if is an application wide feature implementing the HttpInterceptor and implementing custom logic (e.g. adding tokens) in the intercept method.
+
 4. How do you identify a structural directive in html?
+
+    * (asterisk) denotes when a structural directive is used
+
 5. How would you select a custom component to style it?
+
+    
+
 6. How would you select all the child components' elements?
 7. How would you cache an observable data?
 8. How would you save data from a form control?
