@@ -292,12 +292,32 @@ To be in the intermediate level, you have to build at least one medium sized ang
     forRoot() static method is used to inject components with the app root injector, ergo, all the providers specified with forRoot() will be available for the entire applications. forChild() static method is used to inject components with a child injector, therefore providers specified will only be avaidable for injections inside this lazy-loaded module.
 
 6. What's the difference between dirty, touched, and pristine on a form element?
+
+    @property {boolean} $untouched True if control has not lost focus yet.
+
+    @property {boolean} $touched True if control has lost focus.
+
+    @property {boolean} $pristine True if user has not interacted with the control yet.
+
+    @property {boolean} $dirty True if user has already interacted with the control.
+
 7. What is an async pipe? What kind of data can be used with async pipe?
+
+    The async pipe subscribes to an Observable or Promise and returns the latest value it has emitted. When a new value is emitted, the async pipe marks the component to be checked for changes. When the component gets destroyed, the async pipe unsubscribes automatically to avoid potential memory leaks.
+
 8. What is injectable? Give me some example.
+
+    @Injectable() lets Angular know that a class can be used with the dependency injector. @Injectable() is not strictly required if the class has other Angular decorators on it or does not have any dependencies. What is important is that any class that is going to be injected with Angular is decorated. However, best practice is to decorate injectables with @Injectable(), as it makes more sense to the reader.
+
 9. What is a pure pipe?
+
+    Angular executes a pure pipe only when it detects a pure change to the input value. A pure change is either a change to a primitive input value (String, Number, Boolean, Symbol) or a changed object reference (Date, Array, Function, Object).
+
+    There are two categories of pipes: pure and impure. Pipes are pure by default. Angular ignores changes within (composite) objects. It won't call a pure pipe if you change an input month, add to an input array, or update an input object property.
+
 10. How will you create two-way data binding in Angular?
 
-
+    Angular offers a special two-way data binding syntax, [(x)]. The [(x)] syntax combines the brackets of property binding, [x], with the parentheses of event binding, (x).
 
 ### Comfortability to Build Medium Size App Questions
 1. How do components communicate with each other?
